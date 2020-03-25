@@ -37,7 +37,33 @@ You can run with `--dry-run` (`-n`) option first to not actually run `prove` but
 just see what distributions will get tested. An example output:
 
     % prove-author GRAVATTJ -n
-    ...
+    prove-author: Found dist: Backup-Duplicity-YADW
+    prove-author: Found dist: Backup-EZ
+    prove-author: Found dist: CLI-Driver
+    prove-author: Found dist: File-RandomGenerator
+    prove-author: Found dist: MySQL-ORM
+    prove-author: Found dist: MySQL-QueryMulti
+    prove-author: Found dist: MySQL-Util
+    prove-author: Found dist: MySQL-Util-Lite-ForeignKeyColumn
+    prove-author: Found dist: Util-Medley
+    prove-author: Found dist: Backup-Duplicity-YADW
+    prove-author: Found dist: Backup-EZ
+    prove-author: Found dist: CLI-Driver
+    prove-author: Found dist: File-RandomGenerator
+    prove-author: Found dist: MySQL-ORM
+    prove-author: Found dist: MySQL-QueryMulti
+    prove-author: Found dist: MySQL-Util
+    prove-author: Found dist: MySQL-Util-Lite-ForeignKeyColumn
+    prove-author: Found dist: Util-Medley
+    prove-author: [DRY] [1/9] Running prove for distribution Backup-Duplicity-YADW (directory /home/u1/repos-other/perl-Backup-Duplicity-YADW) ...
+    prove-author: [DRY] [2/9] Running prove for distribution Backup-EZ (directory /tmp/aM6akPpQUe/Backup-EZ-0.43) ...
+    prove-author: [DRY] [3/9] Running prove for distribution CLI-Driver (directory /tmp/JkZpohbCMa/CLI-Driver-0.3) ...
+    prove-author: [DRY] [4/9] Running prove for distribution File-RandomGenerator (directory /tmp/TU7lm9yjQs/File-RandomGenerator-0.06) ...
+    prove-author: [DRY] [5/9] Running prove for distribution MySQL-ORM (directory /tmp/5OstYMM3Ii/MySQL-ORM-0.12) ...
+    prove-author: [DRY] [6/9] Running prove for distribution MySQL-QueryMulti (directory /tmp/WKRilHdWOr/MySQL-QueryMulti-0.08) ...
+    prove-author: [DRY] [7/9] Running prove for distribution MySQL-Util (directory /tmp/IZS7BH1wtI/MySQL-Util-0.41) ...
+    prove-author: [DRY] [8/9] Running prove for distribution MySQL-Util-Lite-ForeignKeyColumn (directory /tmp/Cx9Jy7o3_i/MySQL-Util-0.34) ...
+    prove-author: [DRY] [9/9] Running prove for distribution Util-Medley (directory /tmp/_DK2_0kdgC/Util-Medley-0.025) ...
 
 The above example shows that I only have the distribution directories locally on
 my `~/repos` for two of GRAVATTJ's distributions.
@@ -46,11 +72,23 @@ If we reinvoke the above command without the `-n`, *prove-author* will actually
 run `prove` on each directory and provide a summary at the end. Example output:
 
     % prove-author GRAVATTJ
-    ...
+    +-------------------------------------------------+-----------------------------------------------+-----------------------------------+--------+
+    | dir                                             | label                                         | reason                            | status |
+    +-------------------------------------------------+-----------------------------------------------+-----------------------------------+--------+
+    | /home/u1/repos-other/perl-Backup-Duplicity-YADW | distribution Backup-Duplicity-YADW            | Non-zero exit code (255)          | 500    |
+    | /tmp/7Jmw0xDarg/Backup-EZ-0.43                  | distribution Backup-EZ                        | Non-zero exit code (25)           | 500    |
+    | /tmp/hiiemSXIot/CLI-Driver-0.3                  | distribution CLI-Driver                       | Non-zero exit code (1)            | 500    |
+    | /tmp/CsAIDKALXQ/File-RandomGenerator-0.06       | distribution File-RandomGenerator             | Test failed (Failed 1/2 subtests) | 500    |
+    | /tmp/DfHp_1ZrZV/MySQL-ORM-0.12                  | distribution MySQL-ORM                        | Non-zero exit code (1)            | 500    |
+    | /tmp/XC0t4vZnGo/MySQL-QueryMulti-0.08           | distribution MySQL-QueryMulti                 | Test failed                       | 500    |
+    | /tmp/OJ9b7aFljf/MySQL-Util-0.41                 | distribution MySQL-Util                       | Non-zero exit code (1)            | 500    |
+    | /tmp/Eb1QtTu2Cu/MySQL-Util-0.34                 | distribution MySQL-Util-Lite-ForeignKeyColumn | Non-zero exit code (1)            | 500    |
+    | /tmp/Wui5PMkP98/Util-Medley-0.025               | distribution Util-Medley                      | Test failed (No subtests run)     | 500    |
+    +-------------------------------------------------+-----------------------------------------------+-----------------------------------+--------+
 
-The above example shows that one distribution failed testing. You can scroll up
-for the detailed `prove` output to see the details of failure failed, fix
-things, and re-run.
+The above example shows that all distributions still failed testing (due to lack
+of testing requirements). You can scroll up for the detailed `prove` output to
+see the details of failure failed, fix things, and re-run.
 
 How distribution directory is searched: see <pm:App::ProveDists> documentation.
 
