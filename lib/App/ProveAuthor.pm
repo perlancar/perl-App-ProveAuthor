@@ -66,7 +66,7 @@ just see what distributions will get tested. An example output:
     prove-author: [DRY] [9/9] Running prove for distribution Util-Medley (directory /tmp/_DK2_0kdgC/Util-Medley-0.025) ...
 
 The above example shows that I only have the distribution directories locally on
-my `~/repos` for two of GRAVATTJ's distributions.
+my `~/repos-other` for one of GRAVATTJ's distributions.
 
 If we reinvoke the above command without the `-n`, *prove-author* will actually
 run `prove` on each directory and provide a summary at the end. Example output:
